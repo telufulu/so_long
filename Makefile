@@ -39,7 +39,7 @@ all:	$(NAME)
 
 $(NAME):	$(LIBFT) $(MLX) $(OBJS)
 	echo "\nCompiling $(BLUE)$(NAME)$(DEF_COLOR)"
-	$(CC) $(CFLAGS) $(MLXFLAGS) $(OBJS) $(LIBFT) $(MLX) $(DEFINES) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLXFLAGS) -lm $(OBJS) $(LIBFT) $(MLX) $(DEFINES) -o $(NAME)
 	echo "$(BLUE)\n------------\n| Done! 👌 |\n------------\$(DEF_COLOR)"
 
 $(OBJS_DIR)%.o:	$(SRCS_DIR)%.c
