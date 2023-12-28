@@ -1,6 +1,6 @@
 NAME			=	so_long
 CC				=	cc
-CFLAGS			=	-Wall -Werror -Wextra -I $(INC) -I $(LIBFT_INC) -I $(MLX_DIR)
+CFLAGS			=	-Wall -Werror -Wextra -fsanitize=address -g3 -I $(INC) -I $(LIBFT_INC) -I $(MLX_DIR)
 MLXFLAGS		=	-framework OpenGL -framework AppKit
 INC				=	inc/
 
@@ -14,7 +14,7 @@ LIBFT			=	$(LIBFT_DIR)libft.a
 SRCS			=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS			=	$(addprefix $(OBJS_DIR), $(OBJS_FILES))
 OBJS_FILES		=	$(SRCS_FILES:%.c=%.o)
-SRCS_FILES		=	main.c
+SRCS_FILES		=	main.c init.c
 
 SRCS_DIR		=	srcs/
 OBJS_DIR		=	objs/

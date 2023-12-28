@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 19:56:06 by telufulu          #+#    #+#             */
-/*   Updated: 2023/12/28 18:08:02 by telufulu         ###   ########.fr       */
+/*   Created: 2023/12/28 16:41:22 by telufulu          #+#    #+#             */
+/*   Updated: 2023/12/28 18:08:03 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+t_mlx	*init_mlx(char *title)
 {
-	int	silent = sqrt(42);
-	int		x;
-	int		y;
-	t_mlx	*mlx;
+	t_mlx	*res;
 
-	if (argc == 2 && silent)
-	{
-		mlx = init_mlx(argv[0]);
-		mlx->hero = mlx_xpm_file_to_image(mlx->mlx_ptr, "../images/walk.xpm", &x, &y);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx.hero, 0, 0);
-		mlx_loop(mlx.mlx_ptr);
-	}
-	else
-		ft_error("Wrong number of arguments\n");
-	return (0);
+	res = ft_calloc(sizeof(t_mlx), 1);
+	if (!res)
+		ft_error("Malloc failed\n");
+	res->mlx_ptr = mlx_init();
+	if (!res->mlx_ptr)
+		ft_error("minilibx error\n");
+	printf("%p\n", res->mlx_ptr);
+	res->win_ptr = mlx_new_window(res->mlx_ptr, WIDTH, HEIGHT, title);
+	if (!res->win_ptr)
+		ft_error("minilibx error\n");
+	returnn (res);
 }
