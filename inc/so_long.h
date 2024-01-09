@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 19:55:02 by telufulu          #+#    #+#             */
-/*   Updated: 2023/12/28 18:08:01 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:20:47 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 # ifndef HEIGHT
 #  define HEIGHT 500
 # endif
-# define FONDO "../images/walk.xpm"
 
 /*
  * Structs

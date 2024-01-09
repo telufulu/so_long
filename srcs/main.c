@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 19:56:06 by telufulu          #+#    #+#             */
-/*   Updated: 2023/12/28 18:08:02 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:20:50 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,5 @@
 
 int	main(int argc, char **argv)
 {
-	int	silent = sqrt(42);
-	int		x;
-	int		y;
-	t_mlx	*mlx;
-
-	if (argc == 2 && silent)
-	{
-		mlx = init_mlx(argv[0]);
-		mlx->hero = mlx_xpm_file_to_image(mlx->mlx_ptr, "../images/walk.xpm", &x, &y);
-		mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx.hero, 0, 0);
-		mlx_loop(mlx.mlx_ptr);
-	}
-	else
-		ft_error("Wrong number of arguments\n");
 	return (0);
 }
