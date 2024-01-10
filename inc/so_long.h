@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 19:55:02 by telufulu          #+#    #+#             */
-/*   Updated: 2024/01/09 20:20:47 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/01/10 01:06:22 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,46 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+# define SPRITE_SIZE 32
+
 /*
- * Defines
+ * Sprites
  */
-# ifndef WIDTH
-#  define WIDTH 500
-# endif
-# ifndef HEIGHT
-#  define HEIGHT 500
-# endif
+# define WALL "images/map.xpm"
+# define EMPTY "images/empty.xpm"
+# define COIN "images/coin.xpm"
+# define HERO "images/hero.xpm"
 
 /*
  * Structs
  */
 
+typedef struct	s_map
+{
+	char	**map;
+	int		width;
+	int		height;
+	int		hero_x;
+	int		hero_y;
+	int		exit_x;
+	int		exit_y;
+}				t_map;
+
+typedef struct	s_xpm
+{
+}				t_xpm;
+
 typedef struct	s_mlx
 {
-	void	*hero;
 	void	*mlx_ptr;
 	void	*win_ptr;
 }				t_mlx;
 
-
 // main.c
 
-// init.c
-void	init_mlx(t_mlx *res, char *title);
+// init_map.c
+char	**get_map(int fd, int *height, int *width);
+void	check_char(t_map *map, int height, int width);
+void 	check_map(t_map *map);
+t_map	*init_map(int fd, char *path);
 #endif

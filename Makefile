@@ -14,7 +14,7 @@ LIBFT			=	$(LIBFT_DIR)libft.a
 SRCS			=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS			=	$(addprefix $(OBJS_DIR), $(OBJS_FILES))
 OBJS_FILES		=	$(SRCS_FILES:%.c=%.o)
-SRCS_FILES		=	main.c init.c
+SRCS_FILES		=	main.c init_map.c
 
 SRCS_DIR		=	srcs/
 OBJS_DIR		=	objs/
@@ -63,6 +63,7 @@ clean:
 	find . -name ".DS_Store" -delete
 	find . -name "*.gch" -delete
 	echo "$(BLUE)\n------------\n|  clean   |\n| Done! 👌 |\n------------$(DEF_COLOR)"
+	sleep 1
 
 fclean:	clean
 	rm -f $(NAME)
