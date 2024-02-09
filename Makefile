@@ -13,7 +13,7 @@ MLX			=	$(MLX_DIR)libmlx.a
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS		=	$(addprefix $(OBJS_DIR), $(OBJS_FILES))
 OBJS_FILES	=	$(SRCS_FILES:%.c=%.o)
-SRCS_FILES	=	main.c
+SRCS_FILES	=	main.c init_map.c check_exit.c
 SRCS_DIR	=	srcs/
 OBJS_DIR	=	objs/
 
@@ -55,8 +55,8 @@ $(MLX):
 
 clean:
 	echo "\nCleaning$(BLUE)...$(DEF_COLOR)"
-	make clean -C $(LIBFT)
-	make clean -C $(MLX)
+	make fclean -C $(LIBFT_DIR)
+	make fclean -C $(MLX_DIR)
 	rm -rf $(OBJS_DIR)
 	find . -name "*.swap" -delete
 	find . -name ".DS_Store" -delete
@@ -65,11 +65,9 @@ clean:
 	echo "$(BLUE)\n------------\n|  clean   |\n| Done! 👌 |\n------------$(DEF_COLOR)"
 
 fclean:	clean
-	make fclean -C $(LIBFT)
-	make fclean -C $(MLX)
 	rm -f $(NAME)
 
 re:	fclean all
 
-.SILENT: all clean fclean re $(NAME) $(LIBF) $(MLX) $(OBJS)
+.SILENT: all clean fclean re $(NAME) $(LIBFT) $(MLX) $(OBJS)
 .PHONY: all clean fclean re
