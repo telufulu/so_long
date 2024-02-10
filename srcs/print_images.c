@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:16:57 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 20:13:39 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:41:41 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,6 @@ void	put_hero_and_coins(char **map, void *mlx, void *win, t_spr *sprites)
 				print_img(mlx, win, sprites->hero->ptr, x, y);
 			else if (map[y][x] == 'C')
 				print_img(mlx, win, sprites->coin->ptr, x, y);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-}
-
-void	put_exit(char **map, void *mlx, void *win, t_spr *sprites)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	x = 0;
-	while (map[y])
-	{
-		while (map[y][x])
-		{
-			if (map[y][x] == 'E')
-				print_img(mlx, win, sprites->exit->ptr, x, y);
 			x++;
 		}
 		x = 0;

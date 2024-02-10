@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 20:13:31 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/10 21:42:39 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include "keycodes_mac.h"
 
 # include <unistd.h>
 # include <fcntl.h>
@@ -72,6 +73,8 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	t_map	*map;
+	t_spr	*spr;
 }				t_mlx;
 
 // init_map.c
@@ -86,7 +89,7 @@ int		find_exit(char **map, int h_x, int h_y, int *coins);
 void	clear_check_coins(char **map);
 
 // init_mlx.c
-t_mlx	*init_mlx(t_map *map);
+void	init_mlx(t_mlx *mlx);
 void	*new_win(void *mlx_ptr, int height, int width, char *name);
 
 // create_sprites.c
@@ -95,6 +98,15 @@ t_img	*get_img(void *win, char *path);
 
 // game.c
 void	start_game(t_map *map, t_mlx *mlx, t_spr *spr);
+void	print_sprites(t_mlx *mlx, t_map *map, t_spr *spr);
+int		moves(int key, t_mlx *mlx);
+
+// moves_utils.c
+int		is_exit(t_map *map);
+void	move_right(t_mlx *mlx, t_map *map);
+void	move_left(t_mlx *mlx, t_map *map);
+void	move_down(t_mlx *mlx, t_map *map);
+void	move_up(t_mlx *mlx, t_map *map);
 
 // print_images.c
 void	print_img(void *mlx, void *win, void *img, int x, int y);
