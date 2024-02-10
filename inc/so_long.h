@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 01:36:33 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:01:04 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 /*
  * Defines
  */
-# define RES 32
+# define RES 64
+# define MAC_WIDTH 4096
+# define MAC_HEIGHT 2304
 # define NAME "so_long"
 
 /*
@@ -60,4 +62,5 @@ void	clear_check_coins(char **map);
 
 // init_mlx.c
 t_mlx	*init_mlx(t_map *map);
+void	*new_win(void *mlx_ptr, int height, int width, char *name);
 #endif
