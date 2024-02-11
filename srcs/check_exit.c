@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 19:33:47 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 00:55:01 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:52:03 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,23 @@ void	clear_check_coins(char **map)
 
 int	find_exit(char **map, int h_y, int h_x, int *coins)
 {
-	int			flag;
+	int		flag;
+	char	c;
 
 	flag = 0;
-	if ((!map[h_y][h_x + 1] || !map[h_y + 1]) && map[h_y][h_x] != '1')
+	c = map[h_y][h_x];
+	if ((!map[h_y][h_x + 1] || !map[h_y + 1]) && c != '1' && c != 'E')
 		ft_error("map error: map is not closed");
-	if (map[h_y][h_x] != 'X' && map[h_y][h_x] != '1')
+	if (c != 'X' && c != '1')
 	{
-		if (map[h_y][h_x] == 'E')
+		if (c == 'E')
 			return (1);
-		if (map[h_y][h_x] == 'C')
+		if (c == 'C')
 		{
 			map[h_y][h_x] = 'c';
 			(*coins)++;
 		}
-		else if (map[h_y][h_x] == '0')
+		else if (c == '0')
 			map[h_y][h_x] = 'X';
 		flag += find_exit(map, h_y + 1, h_x, coins);
 		flag += find_exit(map, h_y - 1, h_x, coins);

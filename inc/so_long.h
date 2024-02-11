@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 21:42:39 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:41:46 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	print_sprites(t_mlx *mlx, t_map *map, t_spr *spr);
 int		moves(int key, t_mlx *mlx);
 
 // moves_utils.c
-int		is_exit(t_map *map);
+void	exit_game(void);
 void	move_right(t_mlx *mlx, t_map *map);
 void	move_left(t_mlx *mlx, t_map *map);
 void	move_down(t_mlx *mlx, t_map *map);

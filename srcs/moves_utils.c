@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 17:49:30 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/10 21:34:20 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/11 01:58:34 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	move_up(t_mlx *mlx, t_map *map)
 	char	c;
 
 	c = map->map[map->h_y - 1][map->h_x];
-	if (c != '1')
+	if (c == 'E' && !map->coins)
+		exit_game();
+	else if (c != '1' && c != 'E')
 	{
 		map->map[map->h_y][map->h_x] = '0';
 		map->h_y -= 1;
@@ -33,7 +35,9 @@ void	move_down(t_mlx *mlx, t_map *map)
 	char	c;
 
 	c = map->map[map->h_y + 1][map->h_x];
-	if (c != '1')
+	if (c == 'E' && !map->coins)
+		exit_game();
+	else if (c != '1' && c != 'E')
 	{
 		map->map[map->h_y][map->h_x] = '0';
 		map->h_y += 1;
@@ -49,7 +53,9 @@ void	move_left(t_mlx *mlx, t_map *map)
 	char	c;
 
 	c = map->map[map->h_y][map->h_x - 1];
-	if (c != '1')
+	if (c == 'E' && !map->coins)
+		exit_game();
+	else if (c != '1' && c != 'E')
 	{
 		map->map[map->h_y][map->h_x] = '0';
 		map->h_x -= 1;
@@ -65,7 +71,9 @@ void	move_right(t_mlx *mlx, t_map *map)
 	char	c;
 
 	c = map->map[map->h_y][map->h_x + 1];
-	if (c != '1')
+	if (c == 'E' && !map->coins)
+		exit_game();
+	else if (c != '1' && c != 'E')
 	{
 		map->map[map->h_y][map->h_x] = '0';
 		map->h_x += 1;
@@ -76,9 +84,8 @@ void	move_right(t_mlx *mlx, t_map *map)
 	}
 }
 
-int	is_exit(t_map *map)
+void	exit_game(void)
 {
-	if (!map->coins && map->h_x == map->e_x && map->h_y == map->e_y)
-		return (1);
-	return (0);
+	ft_putstr_fd("\nExit...\n", 1);
+	exit(EXIT_SUCCESS);
 }
