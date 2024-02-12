@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 17:12:41 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/12 19:25:02 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,7 @@ void	print_img(t_mlx *mlx, void *img, int x, int y);
 void 	put_ground(char **map, t_mlx *mlx, t_spr *sprites);
 void 	put_obst(char **map, t_mlx *mlx, t_spr *sprites);
 void 	put_hero_and_coins(char **map, t_mlx *mlx, t_spr *sprites);
+
+// check_assets.c
+void	check_assets(void);
 #endif
