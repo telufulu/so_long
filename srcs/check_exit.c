@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 19:33:47 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/11 01:52:03 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:19:55 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	find_exit(char **map, int h_y, int h_x, int *coins)
 
 int	check_exit(t_map *map)
 {
-	if (!find_exit(map->map, map->h_y, map->h_x, &map->coins))
+	if (!find_exit(map->map, map->h_y, map->h_x, &map->coins) || !map->coins)
 		return (0);
 	clear_check_coins(map->map);
 	return (1);

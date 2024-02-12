@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:41:25 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/11 01:33:14 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:12:39 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	check_map(t_map *map)
 		ft_error("map error: map couldn't be read");
 	else if (map->height == map->width)
 		ft_error("map error: map is a square");
-	else if (!map->h_y || !map->h_x || map->h_y == map->height - 1 || 
-		map->h_x == map->width - 1)
+	else if (!map->h_y || !map->h_x)
+		ft_error("map error: map is not closed");
+	else if (map->h_y == map->height - 1 || map->h_x == map->width - 1)
 		ft_error("map error: map is not closed");
 }
 
@@ -42,7 +43,7 @@ void	check_line(char *line, t_map *map, int h, int w)
 			map->e_x = w;
 		}
 		else if (line[0] == '\n' || !ft_strchr("PEC10\n", line[w]))
-			ft_error("map error: forbidden simbol in map");
+			ft_error("map error: forbidden symbol in map");
 		w++;
 	}
 }
@@ -54,6 +55,8 @@ void	get_map(t_map *map, int fd)
 
 	to_split = 0;
 	aux = get_next_line(fd);
+	if (!aux)
+		ft_error("map error: map is empty");
 	while (aux)
 	{
 		check_line(aux, map, map->height, 0);

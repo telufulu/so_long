@@ -13,8 +13,8 @@ MLX			=	$(MLX_DIR)libmlx.a
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS		=	$(addprefix $(OBJS_DIR), $(OBJS_FILES))
 OBJS_FILES	=	$(SRCS_FILES:%.c=%.o)
-SRCS_FILES	=	main.c init_map.c check_exit.c init_mlx.c create_sprites.c game.c \
-				print_images.c moves_utils.c
+SRCS_FILES	=	main.c init_map.c check_exit.c init_mlx.c create_sprites.c \
+				game.c print_images.c moves_utils.c
 SRCS_DIR	=	srcs/
 OBJS_DIR	=	objs/
 

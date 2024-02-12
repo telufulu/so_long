@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/11 01:41:46 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:12:41 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
  * Defines
  */
 # define RES 64
-# define MAC_WIDTH 4096
-# define MAC_HEIGHT 2304
+# define MAC_W 4096
+# define MAC_H 2304
 # define NAME "so_long"
 
 /*
@@ -89,7 +89,7 @@ int		find_exit(char **map, int h_x, int h_y, int *coins);
 void	clear_check_coins(char **map);
 
 // init_mlx.c
-void	init_mlx(t_mlx *mlx);
+void	init_mlx(t_mlx *mlx, t_map *map);
 void	*new_win(void *mlx_ptr, int height, int width, char *name);
 
 // create_sprites.c
@@ -109,8 +109,8 @@ void	move_down(t_mlx *mlx, t_map *map);
 void	move_up(t_mlx *mlx, t_map *map);
 
 // print_images.c
-void	print_img(void *mlx, void *win, void *img, int x, int y);
-void 	put_ground(char **map, void *mlx, void *win, t_spr *sprites);
-void 	put_obst(char **map, void *mlx, void *win, t_spr *sprites);
-void 	put_hero_and_coins(char **map, void *mlx, void *win, t_spr *sprites);
+void	print_img(t_mlx *mlx, void *img, int x, int y);
+void 	put_ground(char **map, t_mlx *mlx, t_spr *sprites);
+void 	put_obst(char **map, t_mlx *mlx, t_spr *sprites);
+void 	put_hero_and_coins(char **map, t_mlx *mlx, t_spr *sprites);
 #endif

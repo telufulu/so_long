@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:55:19 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/11 01:30:02 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/12 17:12:44 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		if (!mlx)
 			ft_error("malloc failed");
 		mlx->map = init_map(open(argv[1], O_RDONLY), argv[1]);
-		init_mlx(mlx);
+		init_mlx(mlx, mlx->map);
 		mlx->spr = create_sprites(mlx->win_ptr);
 		start_game(mlx->map, mlx, mlx->spr);
 	}
