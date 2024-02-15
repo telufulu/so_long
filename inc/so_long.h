@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 19:25:02 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:28:46 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include "mlx.h"
-# include "keycodes_mac.h"
 
 # include <unistd.h>
 # include <fcntl.h>
@@ -73,6 +72,7 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		moves;
 	t_map	*map;
 	t_spr	*spr;
 }				t_mlx;
@@ -80,8 +80,11 @@ typedef struct s_mlx
 // init_map.c
 t_map	*init_map(int fd, char *path);
 void	get_map(t_map *map, int fd);
+
+// check_map.c
 void	check_line(char *line, t_map *map, int h, int w);
 void	check_map(t_map *map);
+int		check_edges(char **map, int h, int w);
 
 // check_exit.c
 int		check_exit(t_map *map);
@@ -94,12 +97,15 @@ void	*new_win(void *mlx_ptr, int height, int width, char *name);
 
 // create_sprites.c
 t_spr	*create_sprites(void *win);
+void	test_assets(void);
+void	check_assets(char *path);
 t_img	*get_img(void *win, char *path);
 
 // game.c
 void	start_game(t_map *map, t_mlx *mlx, t_spr *spr);
 void	print_sprites(t_mlx *mlx, t_map *map, t_spr *spr);
 int		moves(int key, t_mlx *mlx);
+void	print_moves(char *move, t_mlx *mlx);
 
 // moves_utils.c
 void	exit_game(void);
@@ -114,6 +120,4 @@ void 	put_ground(char **map, t_mlx *mlx, t_spr *sprites);
 void 	put_obst(char **map, t_mlx *mlx, t_spr *sprites);
 void 	put_hero_and_coins(char **map, t_mlx *mlx, t_spr *sprites);
 
-// check_assets.c
-void	check_assets(void);
 #endif

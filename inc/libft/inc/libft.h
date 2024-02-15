@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:31:25 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/09 23:44:52 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 21:07:43 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,29 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/*
+ * Defines
+ */
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 16
 # endif
 
 # define MAX_FD 1024
+# define DEC_BASE "0123456789"
+# define OCT_BASE "01234567"
+# define HEX_BASE "0123456789abcdef"
+
+/*
+ * Term colors
+ */
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define PURPLE "\033[0;35m"
+# define CYAN "\033[0;36m"
+# define DEFAULT "\033[0m"
 
 // Part 1 functions
 int		ft_isalpha(int c);

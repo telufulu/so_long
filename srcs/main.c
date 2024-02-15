@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 19:55:19 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 19:25:05 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:28:50 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		check_assets();
+		test_assets();
 		mlx = ft_calloc(sizeof(t_mlx), 1);
 		if (!mlx)
 			ft_error("malloc failed");

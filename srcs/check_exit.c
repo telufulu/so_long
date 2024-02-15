@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 19:33:47 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 16:19:55 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:28:44 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ int	find_exit(char **map, int h_y, int h_x, int *coins)
 	char	c;
 
 	flag = 0;
+
 	c = map[h_y][h_x];
-	if ((!map[h_y][h_x + 1] || !map[h_y + 1]) && c != '1' && c != 'E')
-		ft_error("map error: map is not closed");
-	if (c != 'X' && c != '1')
+	if (c == '1')
+		return (0);
+	if (c && c != 'X' && c != '1')
 	{
 		if (c == 'E')
 			return (1);

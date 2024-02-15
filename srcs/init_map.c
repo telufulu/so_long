@@ -6,47 +6,11 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:41:25 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 17:12:39 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 22:28:47 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	check_map(t_map *map)
-{
-	if (!map->map)
-		ft_error("map error: map couldn't be read");
-	else if (map->height == map->width)
-		ft_error("map error: map is a square");
-	else if (!map->h_y || !map->h_x)
-		ft_error("map error: map is not closed");
-	else if (map->h_y == map->height - 1 || map->h_x == map->width - 1)
-		ft_error("map error: map is not closed");
-}
-
-void	check_line(char *line, t_map *map, int h, int w)
-{
-	while (line[w])
-	{
-		if (line[w] == 'P')
-		{
-			if (map->h_y || map->h_x)
-				ft_error("map error: more than one initial position");
-			map->h_y = h;
-			map->h_x = w;
-		}
-		else if (line[w] == 'E')
-		{
-			if (map->e_y || map->e_x)
-				ft_error("map error: more than one exit");
-			map->e_y = h;
-			map->e_x = w;
-		}
-		else if (line[0] == '\n' || !ft_strchr("PEC10\n", line[w]))
-			ft_error("map error: forbidden symbol in map");
-		w++;
-	}
-}
 
 void	get_map(t_map *map, int fd)
 {
@@ -67,10 +31,11 @@ void	get_map(t_map *map, int fd)
 		if (!to_split)
 			ft_error("malloc failed");
 		aux = get_next_line(fd);
+		if (aux && (size_t)map->width != ft_strlen(aux) - 1)
+			ft_error("map error: map is not a rectangle");
 	}
 	map->map = ft_split(to_split, '\n');
 	free(to_split);
-	check_map(map);
 }
 
 t_map	*init_map(int fd, char *path)
@@ -83,6 +48,7 @@ t_map	*init_map(int fd, char *path)
 	if (!map)
 		ft_error("malloc failed");
 	get_map(map, fd);
+	check_map(map);
 	if (!check_exit(map))
 		ft_error("map error: map can't be solved");
 	return (map);

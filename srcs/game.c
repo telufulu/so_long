@@ -6,11 +6,25 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:16:57 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/12 17:08:37 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/15 21:28:22 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "keycodes_mac.h"
+
+void	print_moves(char *move, t_mlx *mlx)
+{
+	ft_putstr_fd("\33[2K\r", 1);
+	ft_putstr_fd(CYAN, 1);
+	ft_putstr_fd("Last move: ", 1);
+	ft_putstr_fd(DEFAULT, 1);
+	ft_putstr_fd(move, 1);
+	ft_putstr_fd(GREEN, 1);
+	ft_putstr_fd("\tmoves: ", 1);
+	ft_putstr_fd(DEFAULT, 1);
+	ft_putnbr_base(mlx->moves, "0123456789");
+}
 
 int	moves(int key, t_mlx *mlx)
 {
