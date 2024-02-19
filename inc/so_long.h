@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/15 22:28:46 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:46:20 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		check_edges(char **map, int h, int w);
 
 // check_exit.c
 int		check_exit(t_map *map);
-int		find_exit(char **map, int h_x, int h_y, int *coins);
+int		find_exit(char **map, int x, int y, int *coins);
 void	clear_check_coins(char **map);
 
 // init_mlx.c
