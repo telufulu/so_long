@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:41:25 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/15 22:28:47 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:13:43 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	get_map(t_map *map, int fd)
 
 	to_split = 0;
 	aux = get_next_line(fd);
+	map->width = ft_strlen(aux) - 1;
 	if (!aux)
 		ft_error("map error: map is empty");
 	while (aux)
 	{
 		check_line(aux, map, map->height, 0);
-		map->height++;
-		map->width = ft_strlen(aux) - 1;
+		++map->height;
 		to_split = concatenate(to_split, aux);
 		free(aux);
 		if (!to_split)
@@ -49,7 +49,6 @@ t_map	*init_map(int fd, char *path)
 		ft_error("malloc failed");
 	get_map(map, fd);
 	check_map(map);
-	if (!check_exit(map))
-		ft_error("map error: map can't be solved");
+	check_exit(map);
 	return (map);
 }

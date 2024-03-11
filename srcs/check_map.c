@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: telufulu <telufulu@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 22:41:25 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/15 21:41:59 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:15:40 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	check_line(char *line, t_map *map, int h, int w)
 			map->e_y = h;
 			map->e_x = w;
 		}
+		else if (line[w] == 'C' && !map->coins)
+			++map->coins;
 		else if (line[0] == '\n' || !ft_strchr("PEC10\n", line[w]))
 			ft_error("map error: forbidden symbol in map");
 		w++;
@@ -40,6 +42,10 @@ void	check_map(t_map *map)
 {
 	if (!map->map)
 		ft_error("map error: map couldn't be read");
+	else if (!map->h_y && !map->h_x)
+		ft_error("map error: there is not inital position");
+	else if (!map->e_y && !map->e_x)
+		ft_error("map error: there is not exit");
 	else if (check_edges(map->map, map->height - 1, map->width - 1))
 		ft_error("map error: map is not surrounded by walls");
 }

@@ -6,7 +6,7 @@
 /*   By: telufulu <telufulu@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:50:23 by telufulu          #+#    #+#             */
-/*   Updated: 2024/02/19 19:46:20 by telufulu         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:15:31 by telufulu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_spr
  * Structs
  */
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**map;
 	int		width;
@@ -116,8 +116,8 @@ void	move_up(t_mlx *mlx, t_map *map);
 
 // print_images.c
 void	print_img(t_mlx *mlx, void *img, int x, int y);
-void 	put_ground(char **map, t_mlx *mlx, t_spr *sprites);
-void 	put_obst(char **map, t_mlx *mlx, t_spr *sprites);
-void 	put_hero_and_coins(char **map, t_mlx *mlx, t_spr *sprites);
+void	put_ground(char **map, t_mlx *mlx, t_spr *sprites);
+void	put_obst(char **map, t_mlx *mlx, t_spr *sprites);
+void	put_hero_and_coins(char **map, t_mlx *mlx, t_spr *sprites);
 
 #endif
