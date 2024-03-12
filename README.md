@@ -3,8 +3,7 @@
 ## The objective
 This project is a tiny 2D game. Its purpose is to practice with textures, sprites, and some other very basic gameplay elements.  
 
-The proyect uses [Minilibx](https://github.com/42Paris/minilibx-linux), a graphical library created by [42 Paris](https://github.com/42Paris) for 42 students.  
-If you need more documentation about this library you can click [here](https://harm-smits.github.io/42docs/libs/minilibx)  
+The proyect uses [Minilibx](https://github.com/42Paris/minilibx-linux), a graphical library created by [42 Paris](https://github.com/42Paris) for 42 students. If you need more documentation about this library you can click [here.](https://harm-smits.github.io/42docs/libs/minilibx)  
 
 ## How to install
 Just 4 simple steps:  
@@ -35,12 +34,10 @@ You can draw you own map, but it must obey some rules:
 5. It must be closed/surrounded by walls.
 6. It must end with the extension .ber  
 
-Here you can see and example of map   
+Here you can see and example of a map   
 
-<div style="display: flex;">
-    <img src=".img_example1.png" alt="Example of a .ber file" style="width: 25%;">
-    <img src=".img_example2.png" alt="Gameplay" style="width: 75%;">
-</div>  
+![example2.ber](.img_example2.png)
+![example1.ber](.img_example1.png)
 
 
 > If you need something, you can reach me by [Slack](https://42born2code.slack.com/team/U05SF7MGZ9N) or [email me](mailto:teresa@teresalufuluabo.es)
